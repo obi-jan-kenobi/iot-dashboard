@@ -1,4 +1,4 @@
-module Widget exposing (..)
+module Widget exposing (Graphdata, Log, Point, Widget(..))
 
 import Time exposing (..)
 
