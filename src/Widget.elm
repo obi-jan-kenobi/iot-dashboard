@@ -1,23 +1,28 @@
 module Widget exposing (..)
 
+import Time exposing (..)
+
 
 type Widget
-    = Linechart Graphdata
-    | Barchart Graphdata
+    = Chart
     | Text Log
 
 
-type alias Point a =
-    { x : a
-    , y : a
-    }
+type Chart
+    = Linechart Axis Timeseries
+    | Barchart Axis Timeseries
 
 
-type alias Graphdata =
-    { values : List (Point Float)
-    , xAxis : Maybe String
-    , yAxis : Maybe String
-    }
+type alias Axis =
+    { x : String, y : String }
+
+
+type Point a b
+    = Point a b
+
+
+type Timeseries
+    = Timeseries (List (Point Time Float))
 
 
 type alias Log =
